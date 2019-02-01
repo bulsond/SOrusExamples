@@ -14,19 +14,46 @@ namespace ConsoleApp1.Models.Tests
         [TestMethod()]
         public void VasyaTestCtor()
         {
-            Assert.Fail();
+            Vasya vasya = new Vasya();
+
+            Assert.IsNotNull(vasya);
+            Assert.IsTrue(vasya.State is NotFreezedWater);
+            Assert.AreEqual(0, vasya.CountSteps);
         }
 
         [TestMethod()]
         public void FreezeWaterTest()
         {
-            Assert.Fail();
+            Vasya vasya = new Vasya();
+
+            vasya.FreezeWater();
+
+            Assert.IsTrue(vasya.State is FreezedWater);
         }
 
         [TestMethod()]
-        public void WalkOnWaterTest()
+        public void WalkOnWaterWhenNotFreezedWaterTest()
         {
-            Assert.Fail();
+            int steps = 20;
+            Vasya vasya = new Vasya();
+
+            vasya.WalkOnWater(steps);
+
+            Assert.IsTrue(vasya.State is NotFreezedWater);
+            Assert.AreNotEqual(steps, vasya.CountSteps);
+        }
+
+        [TestMethod()]
+        public void WalkOnWaterWhenFreezedWaterTest()
+        {
+            int steps = 20;
+            Vasya vasya = new Vasya();
+
+            vasya.FreezeWater();
+            vasya.WalkOnWater(steps);
+
+            Assert.IsTrue(vasya.State is FreezedWater);
+            Assert.AreEqual(steps, vasya.CountSteps);
         }
     }
 }

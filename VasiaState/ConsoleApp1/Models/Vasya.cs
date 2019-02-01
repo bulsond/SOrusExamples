@@ -10,7 +10,7 @@
         }
 
         //состояние Васи
-        private IVasyaState State { get; set; }
+        public IVasyaState State { get; set; }
 
         //количество проделанных шагов
         public int CountSteps { get; private set; }
