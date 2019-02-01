@@ -5,11 +5,6 @@ VisualStudioVersion = 15.0.28307.329
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp1", "ConsoleApp1\ConsoleApp1.csproj", "{B74C82BA-7A5F-4266-B6F1-E7764459F5AC}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Doc", "Doc", "{E4B750D2-513A-47CF-B160-AC0FD3E57757}"
-	ProjectSection(SolutionItems) = preProject
-		ConsoleApp1\Info.txt = ConsoleApp1\Info.txt
-	EndProjectSection
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
