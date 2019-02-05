@@ -1,4 +1,5 @@
-﻿using StudentsUI.Views;
+﻿using StudentsUI.Abstractions;
+using StudentsUI.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +18,11 @@ namespace StudentsUI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainView());
+
+            IAppController controller = new AppController();
+            IMainView view = controller.GetMainView();
+
+            Application.Run(view as Form);
         }
     }
 }
