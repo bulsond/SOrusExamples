@@ -8,13 +8,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace StudentsUI
+namespace StudentsUI.Views
 {
-    public partial class Form1 : Form
+    public partial class MainView : Form
     {
-        public Form1()
+        public MainView()
         {
             InitializeComponent();
+
+            this.CenterToScreen();
+            this.Text = "Пример работы с привязками";
         }
     }
 }
