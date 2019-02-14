@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.421
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataLib", "DataLib\DataLib.csproj", "{C3265008-873F-4178-8638-92C5944997F6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataLibTests", "DataLibTests\DataLibTests.csproj", "{31A601D0-C43F-49D0-8984-95EC62B79BD7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C3265008-873F-4178-8638-92C5944997F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C3265008-873F-4178-8638-92C5944997F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C3265008-873F-4178-8638-92C5944997F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C3265008-873F-4178-8638-92C5944997F6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{31A601D0-C43F-49D0-8984-95EC62B79BD7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31A601D0-C43F-49D0-8984-95EC62B79BD7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31A601D0-C43F-49D0-8984-95EC62B79BD7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31A601D0-C43F-49D0-8984-95EC62B79BD7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {31BAD147-B36B-4230-9D43-EB14B5016B34}
+	EndGlobalSection
+EndGlobal
