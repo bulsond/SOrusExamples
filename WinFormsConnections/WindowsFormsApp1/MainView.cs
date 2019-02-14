@@ -96,7 +96,7 @@ namespace WindowsFormsApp1
             {
                 Debug.WriteLine($"Адрес {devNode.Device.IpAddress} доступен");
                 devNode.SelectedImageIndex = 2;
-                modbus.CloseTCP();
+                await Task.Run(() => modbus.CloseTCP());
             }
             else
             {
