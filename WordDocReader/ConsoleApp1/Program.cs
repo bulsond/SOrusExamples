@@ -29,13 +29,13 @@ namespace ConsoleApp1
             //проходим по параграфам и извлекаем данные
             XName listPrName = XName.Get("listPr", "http://schemas.microsoft.com/office/word/2003/wordml");
             List<string> result = new List<string>();
-            foreach (var param in pars)
+            foreach (var par in pars)
             {
                 //текстовое содержимое параграфа
-                var text = param.Element(w + "r").Element(w + "t").Value;
+                var text = par.Element(w + "r").Element(w + "t").Value;
 
                 //пытаемся найти ноду связанную с форматированием списка
-                var listPr = param.Element(w + "pPr")
+                var listPr = par.Element(w + "pPr")
                                     .Elements()
                                     .FirstOrDefault(e => e.Name == listPrName);
                 //если такой ноды нет
