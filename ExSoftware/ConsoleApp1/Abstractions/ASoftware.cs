@@ -47,7 +47,7 @@ namespace ConsoleApp1
         protected virtual int CompareValues(ISoftware other)
         {
             //т.к. в конструкторе мы не даем создать экз. с null значениями св-в
-            //то перед сравнением здесь на не надо проверять на null
+            //то перед сравнением здесь нам не надо проверять на null
             //Сравниваем по двум свойствам
             int nameResult = Name.CompareTo(other.Name);
             int madeInResult = MadeIn.CompareTo(other.MadeIn);

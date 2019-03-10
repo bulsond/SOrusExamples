@@ -38,7 +38,7 @@ namespace ConsoleApp1
             Console.ReadLine();
 
 
-            var freeSoftwares = softwares.GetSoftwarByType<FreeSoftware>(typeof(FreeSoftware));
+            var freeSoftwares = softwares.GetSoftwareByType<FreeSoftware>(typeof(FreeSoftware));
             Console.WriteLine("=====Только Free=====");
             foreach (var item in freeSoftwares)
             {
