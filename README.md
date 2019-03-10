@@ -2,6 +2,7 @@
 Примеры ответов для https://ru.stackoverflow.com/
 
 ### Что имеем
+- ExSoftware пример на реализацию IComparable<T> и ICollection<T> https://ru.stackoverflow.com/q/954310/222542
 - WordDocReader - пример чтения нумерованного списка из ячейки таблицы документа Word https://ru.stackoverflow.com/q/945231/222542
 - ExRepositoryJBOSS - пример репозитория для работы с Oracle через web api https://ru.stackoverflow.com/q/944232/222542
 - WinFormsConnections - асинхр. работа с TreeView https://ru.stackoverflow.com/q/944550/222542
