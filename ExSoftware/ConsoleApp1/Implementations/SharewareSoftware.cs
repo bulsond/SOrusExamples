@@ -18,7 +18,7 @@ namespace ConsoleApp1
         public DateTime EndUsagePeriod => InstallationDate + UsagePeriod;
         public virtual decimal Price { get; }
 
-        public override bool CanBeUsed => EndUsagePeriod < DateTime.Now;
+        public override bool CanBeUsed => EndUsagePeriod > DateTime.Now;
 
         public override string ToString()
         {

@@ -69,6 +69,8 @@ namespace ConsoleApp1
             _softwares.Sort();
         }
 
+        
+
 
         /// <summary>
         /// Получение коллекции нужного типа программ
@@ -76,11 +78,24 @@ namespace ConsoleApp1
         /// <typeparam name="T">тип программ в коллекции</typeparam>
         /// <param name="type">искомый тип программ</param>
         /// <returns>коллекции нужного типа программ</returns>
-        public List<T> GetSoftwareByType<T>(Type type) where T : class
+        public List<T> GetSoftwaresByType<T>(Type type) where T : class
         {
             return _softwares.Where(s => s.GetType().Equals(type))
                              .Select(s => s as T)
                              .ToList();
         }
+
+
+        public IEnumerable<T> GetSoftwaresByType<T>() where T : class
+        {
+            foreach (var soft in _softwares)
+            {
+                if (soft is T)
+                {
+                    yield return soft as T;
+                }
+            }
+        }
+
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -38,13 +39,25 @@ namespace ConsoleApp1
             Console.ReadLine();
 
 
-            var freeSoftwares = softwares.GetSoftwareByType<FreeSoftware>(typeof(FreeSoftware));
+            var freeSoftwares = softwares.GetSoftwaresByType<FreeSoftware>(typeof(FreeSoftware));
             Console.WriteLine("=====Только Free=====");
             foreach (var item in freeSoftwares)
             {
                 Console.WriteLine(item);
             }
             Console.WriteLine("========================");
+
+            Console.WriteLine("Для продолжения нажмите Ввод...");
+            Console.ReadLine();
+
+            //новое!
+            var propSoftwares = softwares.GetSoftwaresByType<ProprietarySoftware>();
+            foreach (var item in propSoftwares)
+            {
+                Console.WriteLine(item);
+            }
+            Console.WriteLine("========================");
+
 
             Console.ReadKey();
         }
