@@ -69,9 +69,6 @@ namespace ConsoleApp1
             _softwares.Sort();
         }
 
-        
-
-
         /// <summary>
         /// Получение коллекции нужного типа программ
         /// </summary>

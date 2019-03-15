@@ -37,8 +37,9 @@ namespace WFApp1
         /// </summary>
         private void SetBindings()
         {
-            _bsPeople.DataSource = typeof(List<Person>);
-
+            //выключаем автогенерацию колонок
+            dataGridViewPeople.AutoGenerateColumns = false;
+            //привязываем источник данных
             dataGridViewPeople.DataSource = _bsPeople;
         }
 
@@ -50,6 +51,7 @@ namespace WFApp1
             //получаем список людей из БД
             List<Person> people = Program.Context.GetPeople();
 
+            //заполнение данными
             _bsPeople.Clear();
             people.ForEach(p => _bsPeople.Add(p));
         }
