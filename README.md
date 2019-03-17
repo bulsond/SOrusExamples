@@ -2,6 +2,8 @@
 Примеры ответов для https://ru.stackoverflow.com/
 
 ### Что имеем
+- ExEditableObject - пример на реализацию в классе модели IEditableObject для возможности отмены редактирования свойств экземпляра модели
+https://ru.stackoverflow.com/q/957817/222542
 - ExSoftware пример на реализацию IComparable<T> и ICollection<T> https://ru.stackoverflow.com/q/954310/222542
 - WordDocReader - пример чтения нумерованного списка из ячейки таблицы документа Word https://ru.stackoverflow.com/q/945231/222542
 - ExRepositoryJBOSS - пример репозитория для работы с Oracle через web api https://ru.stackoverflow.com/q/944232/222542
