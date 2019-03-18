@@ -21,11 +21,12 @@ namespace WpfApp1.ViewModels
         public MainViewModel(IPersonRepository repository)
         {
             _repo = repository ?? throw new ArgumentNullException(nameof(repository));
+            People = new ObservableCollection<Person>();
         }
 
         public async Task LoadData()
         {
-            People = new ObservableCollection<Person>();
+            People.Clear();
 
             var result = await _repo.GetPeopleOrderedByLastName();
             List<Person> people = result.ToList();

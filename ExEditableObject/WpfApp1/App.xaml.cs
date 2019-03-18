@@ -30,8 +30,8 @@ namespace WpfApp1
         {
             base.OnStartup(e);
 
-            await _vm.LoadData();
             new MainWindow() { DataContext = _vm }.Show();
+            await _vm.LoadData();
         }
 
     }
