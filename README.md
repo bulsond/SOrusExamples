@@ -2,6 +2,7 @@
 Примеры ответов для https://ru.stackoverflow.com/
 
 ### Что имеем
+- ExNavigationWpf - пример MVVM WPF приложения с несколькими вьюшками https://ru.stackoverflow.com/q/968594/222542
 - ExEditableObject - пример на реализацию в классе модели IEditableObject для возможности отмены редактирования свойств экземпляра модели
 https://ru.stackoverflow.com/q/957817/222542
 - ExSoftware пример на реализацию IComparable<T> и ICollection<T> https://ru.stackoverflow.com/q/954310/222542
