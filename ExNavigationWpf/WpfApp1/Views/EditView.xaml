@@ -1,0 +1,63 @@
+﻿<UserControl x:Class="WpfApp1.Views.EditView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WpfApp1.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Row="0"
+                    VerticalAlignment="Top"
+                    HorizontalAlignment="Left">
+            <Button Width="40"
+                    Command="{Binding BackCommand, Mode=OneTime}">
+                <Run FontFamily="Segoe UI Symbol" FontSize="24"
+                     Text="&#xE0A9;"/>
+            </Button>
+        </StackPanel>
+        <StackPanel Grid.Row="1"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Имя"/>
+                <TextBox Text="{Binding CurrentPerson.FirstName}"
+                         Margin="38,0,0,0"
+                         Width="150"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal"
+                        Margin="0,10,0,0">
+                <TextBlock Text="Фамилия"/>
+                <TextBox Text="{Binding CurrentPerson.LastName}"
+                         Margin="10,0,0,0"
+                         Width="150"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal"
+                        Margin="0,10,0,0">
+                <TextBlock Text="Дата рождения"/>
+                <DatePicker FirstDayOfWeek="Monday"
+                            Margin="10,0,0,0"
+                            SelectedDateFormat="Long"
+                            DisplayDateStart="1/01/1940"
+                            DisplayDateEnd="12/31/2010"
+                            SelectedDate="{Binding CurrentPerson.Birthdate}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal"
+                        Margin="0,50"
+                        HorizontalAlignment="Right">
+                <Button Content="Сохранить"
+                        Width="70"
+                        Command="{Binding SaveCommand, Mode=OneTime}"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</UserControl>
