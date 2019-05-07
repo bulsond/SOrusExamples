@@ -2,6 +2,7 @@
 Примеры ответов для https://ru.stackoverflow.com/
 
 ### Что имеем
+- WinFormsRSSYandex - пример получения и парсинга RSS ленты и сохранение/извлечение БД MySQL
 - ExSettings - WinForms пример запоминания настроек программы в собственный файл конфигурации https://ru.stackoverflow.com/a/969129/222542
 - ConfBind - WinForms пример конфигурации с горячей клавишей https://ru.stackoverflow.com/q/969152/222542
 - ExNavigationWpf - пример MVVM WPF приложения с несколькими вьюшками https://ru.stackoverflow.com/q/968594/222542
