@@ -39,11 +39,13 @@ namespace RssYandexUi.Services
             return feed;
         }
 
-        internal List<RssItem> GetRssItems()
+        internal async Task<List<RssItem>> GetRssItems()
         {
-            List<RssItem> result = new List<RssItem>();
+            //получаем из Yandex данные
+            var feed = await Task.Run(GetFeed);
 
-            var feed = GetFeed();
+            //формируем список тем
+            List<RssItem> result = new List<RssItem>();
             foreach (SyndicationItem item in feed.Items)
             {
                 var rssItem = new RssItem
