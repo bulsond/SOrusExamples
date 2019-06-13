@@ -2,6 +2,7 @@
 Примеры ответов для https://ru.stackoverflow.com/
 
 ### Что имеем
+- CalcWinForms - калькулятор с протоколом https://ru.stackoverflow.com/q/992188/222542
 - ImagesFromDb - пример WinForms приложения получения изображений из blob столбца SQLite БД https://ru.stackoverflow.com/q/991438/222542
 - WinFormsRSSYandex - пример получения и парсинга RSS ленты и сохранение/извлечение БД MySQL
 - ExSettings - WinForms пример запоминания настроек программы в собственный файл конфигурации https://ru.stackoverflow.com/a/969129/222542
