@@ -17,3 +17,4 @@ https://ru.stackoverflow.com/q/957817/222542
 - VasiaState - State Pattern https://ru.stackoverflow.com/q/939349/222542
 - FilterDGV - фильтрация DataGridView через BindingSource https://ru.stackoverflow.com/a/942206/222542
 - SearchImage - пример поиска изображения в изображении с помощью AForge https://ru.stackoverflow.com/a/812762/222542
+- WinFormsAngleSharp - пример загрузки и парсинга страницы с Wiki https://ru.stackoverflow.com/q/1007647
