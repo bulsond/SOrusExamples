@@ -2,6 +2,7 @@
 Примеры ответов для https://ru.stackoverflow.com/
 
 ### Что имеем
+- ConsoleAppFlights - консольная программа с простейшим меню https://ru.stackoverflow.com/q/1032939/222542
 - WinFormsProducts - мелкий пример на работу с чекбоксами и текстбоксами https://ru.stackoverflow.com/questions/1030098/%d0%a1-checkbox-radiobutton-textbox
 - CalcWinForms - калькулятор с протоколом https://ru.stackoverflow.com/q/992188/222542
 - ImagesFromDb - пример WinForms приложения получения изображений из blob столбца SQLite БД https://ru.stackoverflow.com/q/991438/222542
