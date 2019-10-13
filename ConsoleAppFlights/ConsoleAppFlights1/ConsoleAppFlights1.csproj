@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Data\DataContext.cs" />
+    <Compile Include="Data\IDataContext.cs" />
     <Compile Include="Models\Flight.cs" />
     <Compile Include="Models\Plane.cs" />
     <Compile Include="Program.cs" />

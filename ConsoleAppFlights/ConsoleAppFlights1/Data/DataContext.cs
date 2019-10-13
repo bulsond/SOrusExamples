@@ -8,7 +8,7 @@ namespace ConsoleAppFlights1.Data
     /// <summary>
     /// Контекст данных программы
     /// </summary>
-    class DataContext
+    class DataContext : IDataContext
     {
         //список рейсов
         private List<Flight> _flights;
@@ -39,7 +39,7 @@ namespace ConsoleAppFlights1.Data
         /// Получение текущего редактируемого рейса
         /// </summary>
         /// <returns></returns>
-        internal Flight GetFlight()
+        public Flight GetFlight()
         {
             if (_flight == null)
             {
@@ -89,7 +89,7 @@ namespace ConsoleAppFlights1.Data
         /// Создание нового рейса, ввод посадочных мест
         /// </summary>
         /// <param name="seats"></param>
-        internal void SetSeatsFlight(int seats)
+        public void SetSeatsFlight(int seats)
         {
             if (seats <= 0) throw new ArgumentException(nameof(seats));
             if (_flight == null) throw new ArgumentNullException(nameof(_flight));
@@ -101,7 +101,7 @@ namespace ConsoleAppFlights1.Data
         /// Создание нового рейса, ввод номера рейса
         /// </summary>
         /// <param name="number"></param>
-        internal void SetNumberFlight(string number)
+        public void SetNumberFlight(string number)
         {
             if (String.IsNullOrEmpty(number)) throw new ArgumentNullException(nameof(number));
             if (_flight == null) throw new ArgumentNullException(nameof(_flight));
@@ -113,7 +113,7 @@ namespace ConsoleAppFlights1.Data
         /// Создание нового рейса, ввод пункта назначения
         /// </summary>
         /// <param name="dest"></param>
-        internal void SetDestinationFlight(string dest)
+        public void SetDestinationFlight(string dest)
         {
             if (String.IsNullOrEmpty(dest)) throw new ArgumentNullException(nameof(dest));
             if (_flight == null) throw new ArgumentNullException(nameof(_flight));
@@ -126,19 +126,19 @@ namespace ConsoleAppFlights1.Data
         /// Проверка нового рейса, что все данные введены
         /// </summary>
         /// <returns></returns>
-        internal bool IsFlightCorrect()
+        public bool IsFlightCorrect()
         {
             return _flight != null &&
-                !String.IsNullOrEmpty(_flight.Type) &&
-                !String.IsNullOrEmpty(_flight.Number) &&
-                !String.IsNullOrEmpty(_flight.Destination) &&
+                !String.IsNullOrEmpty(_flight.Type) && _flight.Type != "?" &&
+                !String.IsNullOrEmpty(_flight.Number) && _flight.Number != "?" &&
+                !String.IsNullOrEmpty(_flight.Destination) && _flight.Destination != "?" &&
                 _flight.Seats > 0;
         }
 
         /// <summary>
         /// Сохранение нового рейса
         /// </summary>
-        internal void SaveFlight()
+        public void SaveFlight()
         {
             if (_flight == null) throw new ArgumentNullException(nameof(_flight));
 

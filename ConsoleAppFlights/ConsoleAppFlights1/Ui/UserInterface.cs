@@ -11,36 +11,33 @@ namespace ConsoleAppFlights1.Ui
     /// </summary>
     class UserInterface
     {
+        //контекс данных программы
+        private IDataContext _data;
         //команда из выбранного пункта меню
         private Command _command;
         //ссылка на сервис меню
         private readonly MenuService _menuService;
 
-        //контекс данных программы
-        public DataContext Data { get; private set; }
-        //заголовок
-        public MenuHeader MenuHeader { get; set; }
-        //текущий список пунктов меню
-        public IEnumerable<MenuItem> MenuItems { get; set; }
+        //заголовок отображемого окна
+        private MenuHeader MenuHeader => _menuService.CurrentMenuHeader;
+        //список пунктов меню
+        private IEnumerable<MenuItem> MenuItems => _menuService.CurrentMenuItems;
 
         //ctor
-        public UserInterface(DataContext data)
+        public UserInterface(IDataContext data)
         {
-            Data = data ?? throw new ArgumentNullException(nameof(data));
-            _menuService = new MenuService(this);
+            _data = data ?? throw new ArgumentNullException(nameof(data));
+            _menuService = new MenuService(_data);
 
             //заголовок
             Console.Title = "Программа Рейсы";
-            MenuHeader = _menuService.GetMenuHeader("start");
-            //получаем начальный список пунктов меню
-            MenuItems = _menuService.GetMenuItems("start");
         }
 
         /// <summary>
         /// Отображение меню, выбор пункта меню
         /// </summary>
         /// <returns></returns>
-        internal bool ReadCommand()
+        public bool ReadCommand()
         {
             //отображаем меню
             ShowMenu();
@@ -104,7 +101,7 @@ namespace ConsoleAppFlights1.Ui
         /// <summary>
         /// Выполнение команды из выбранного пункта меню
         /// </summary>
-        internal void ExecuteCommand()
+        public void ExecuteCommand()
         {
             //если пользователь ошибся с командой в меню
             if (_command is DoNothingCommand)

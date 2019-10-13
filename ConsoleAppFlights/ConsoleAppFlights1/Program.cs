@@ -7,7 +7,7 @@ namespace ConsoleAppFlights1
     {
         static void Main(string[] args)
         {
-            UserInterface ui = new UserInterface(new DataContext());
+            var ui = new UserInterface(new DataContext());
 
             while (ui.ReadCommand())
             {

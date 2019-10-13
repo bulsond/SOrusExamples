@@ -5,10 +5,10 @@ namespace ConsoleAppFlights1.Ui.Commands
 {
     class NewFlightSaveCommand : Command
     {
-        private readonly DataContext _data;
+        private readonly IDataContext _data;
         private readonly Action _action;
 
-        public NewFlightSaveCommand(DataContext data, Action action)
+        public NewFlightSaveCommand(IDataContext data, Action action)
         {
             _data = data ?? throw new ArgumentNullException(nameof(data));
             _action = action ?? throw new ArgumentNullException(nameof(action));
@@ -29,7 +29,7 @@ namespace ConsoleAppFlights1.Ui.Commands
             string answ = String.Empty;
             do
             {
-                Console.WriteLine("Сохранить, да/нет: ");
+                Console.Write("Сохранить, да/нет: ");
 
                 answ = Console.ReadLine();
                 if (!String.IsNullOrWhiteSpace(answ) && (answ.Equals("да") || answ.Equals("нет")))

@@ -1,4 +1,5 @@
-﻿using ConsoleAppFlights1.Ui.Commands;
+﻿using ConsoleAppFlights1.Data;
+using ConsoleAppFlights1.Ui.Commands;
 using System;
 using System.Collections.Generic;
 
@@ -9,16 +10,27 @@ namespace ConsoleAppFlights1.Ui
     /// </summary>
     class MenuService
     {
-        //ссылка на наружный класс UI
-        private readonly UserInterface _uI;
+        //ссылка на контекст данных
+        private IDataContext _data;
         //список всех возможных вариантов меню с ключами
         private Dictionary<string, MenuItem[]> _menus;
 
+        //текущий заголовок в окне
+        public MenuHeader CurrentMenuHeader { get; private set; }
+        //текущие пункты меню в окне
+        public IEnumerable<MenuItem> CurrentMenuItems { get; private set; }
+
         //ctor
-        public MenuService(UserInterface userInterface)
+        public MenuService(IDataContext data)
         {
-            _uI = userInterface ?? throw new ArgumentNullException(nameof(userInterface));
+            _data = data ?? throw new ArgumentNullException(nameof(data));
+            //загружаем варианты меню
             SetMenus();
+            //ставим начальный заголовок
+            CurrentMenuHeader = GetMenuHeader("start");
+            //загружаем начальный список пунктов меню
+            CurrentMenuItems = GetMenuItems("start");
+
         }
 
         /// <summary>
@@ -30,60 +42,60 @@ namespace ConsoleAppFlights1.Ui
             {
                 ["start"] = new MenuItem[]
                 {
-                    MenuItem.CreateCommon("города", new DestinationsCommand(_uI.Data)),
-                    MenuItem.CreateCommon("куда", new DestinationFlightsCommand(_uI.Data)),
+                    MenuItem.CreateCommon("города", new DestinationsCommand(_data)),
+                    MenuItem.CreateCommon("куда", new DestinationFlightsCommand(_data)),
                     MenuItem.CreateTransition("новый", () =>
                     {
-                        _uI.MenuItems = GetMenuItems("new");
-                        _uI.MenuHeader = GetMenuHeader("new");
+                        CurrentMenuItems = GetMenuItems("new");
+                        CurrentMenuHeader = GetMenuHeader("new");
                     }),
                     MenuItem.CreateTerminal("выход"),
                 },
                 ["new"] = new MenuItem[]
                 {
-                    MenuItem.CreateCommon("самолет", new NewFlightTypeCommand(_uI.Data, () =>
+                    MenuItem.CreateCommon("самолет", new NewFlightTypeCommand(_data, () =>
                     {
-                        _uI.MenuItems = GetMenuItems("newSeats");
-                        _uI.MenuHeader = GetMenuHeader("new");
+                        CurrentMenuItems = GetMenuItems("newSeats");
+                        CurrentMenuHeader = GetMenuHeader("new");
                     })),
                     MenuItem.CreateTransition("назад", () =>
                     {
-                        _uI.MenuItems = GetMenuItems("start");
-                        _uI.MenuHeader = GetMenuHeader("start");
+                        CurrentMenuItems = GetMenuItems("start");
+                        CurrentMenuHeader = GetMenuHeader("start");
                     }),
                 },
                 ["newSeats"] = new MenuItem[]
                 {
-                    MenuItem.CreateCommon("места", new NewFlightSeatsCommand(_uI.Data, () =>
+                    MenuItem.CreateCommon("места", new NewFlightSeatsCommand(_data, () =>
                     {
-                        _uI.MenuItems = GetMenuItems("newOthers");
-                        _uI.MenuHeader = GetMenuHeader("new");
+                        CurrentMenuItems = GetMenuItems("newOthers");
+                        CurrentMenuHeader = GetMenuHeader("new");
                     })),
                     MenuItem.CreateTransition("назад", () =>
                     {
-                        _uI.MenuItems = GetMenuItems("new");
-                        _uI.MenuHeader = GetMenuHeader("new");
+                        CurrentMenuItems = GetMenuItems("new");
+                        CurrentMenuHeader = GetMenuHeader("new");
                     }),
                 },
                 ["newOthers"] = new MenuItem[]
                 {
-                    MenuItem.CreateCommon("номер", new NewFlightNumberCommand(_uI.Data, () =>
+                    MenuItem.CreateCommon("номер", new NewFlightNumberCommand(_data, () =>
                     {
-                        _uI.MenuHeader = GetMenuHeader("new");
+                        CurrentMenuHeader = GetMenuHeader("new");
                     })),
-                    MenuItem.CreateCommon("город", new NewFlightDestinationCommand(_uI.Data, () =>
+                    MenuItem.CreateCommon("город", new NewFlightDestinationCommand(_data, () =>
                     {
-                        _uI.MenuHeader = GetMenuHeader("new");
+                        CurrentMenuHeader = GetMenuHeader("new");
                     })),
-                    MenuItem.CreateCommon("сохранить", new NewFlightSaveCommand(_uI.Data, () =>
+                    MenuItem.CreateCommon("сохранить", new NewFlightSaveCommand(_data, () =>
                     {
-                        _uI.MenuItems = GetMenuItems("start");
-                        _uI.MenuHeader = GetMenuHeader("start");
+                        CurrentMenuItems = GetMenuItems("start");
+                        CurrentMenuHeader = GetMenuHeader("start");
                     })),
                     MenuItem.CreateTransition("назад", () =>
                     {
-                        _uI.MenuItems = GetMenuItems("start");
-                        _uI.MenuHeader = GetMenuHeader("start");
+                        CurrentMenuItems = GetMenuItems("start");
+                        CurrentMenuHeader = GetMenuHeader("start");
                     }),
                 },
             };
@@ -94,7 +106,7 @@ namespace ConsoleAppFlights1.Ui
         /// </summary>
         /// <param name="key">ключ необходимой коллекции MenuItems</param>
         /// <returns></returns>
-        public IEnumerable<MenuItem> GetMenuItems(string key)
+        private IEnumerable<MenuItem> GetMenuItems(string key)
         {
             if (String.IsNullOrEmpty(key)) throw new ArgumentException(nameof(key));
             return _menus[key];
@@ -105,7 +117,7 @@ namespace ConsoleAppFlights1.Ui
         /// </summary>
         /// <param name="key">ключ необходимого заголовка</param>
         /// <returns></returns>
-        public MenuHeader GetMenuHeader(string key)
+        private MenuHeader GetMenuHeader(string key)
         {
             if (String.IsNullOrEmpty(key)) throw new ArgumentException(nameof(key));
 
@@ -119,7 +131,7 @@ namespace ConsoleAppFlights1.Ui
                     return result;
                 case "new":
                     result.ScreenTitle = "Меню новый рейс";
-                    result.ScreenInfo = _uI.Data.GetFlight().ToString();
+                    result.ScreenInfo = _data.GetFlight().ToString();
                     return result;
                 default:
                     return result;

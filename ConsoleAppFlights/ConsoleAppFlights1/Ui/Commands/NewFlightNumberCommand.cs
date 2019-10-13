@@ -5,10 +5,10 @@ namespace ConsoleAppFlights1.Ui.Commands
 {
     class NewFlightNumberCommand : Command
     {
-        private readonly DataContext _data;
+        private readonly IDataContext _data;
         private readonly Action _action;
 
-        public NewFlightNumberCommand(DataContext data, Action action)
+        public NewFlightNumberCommand(IDataContext data, Action action)
         {
             _data = data ?? throw new ArgumentNullException(nameof(data));
             _action = action ?? throw new ArgumentNullException(nameof(action));
