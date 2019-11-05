@@ -2,7 +2,7 @@
 Примеры ответов для https://ru.stackoverflow.com/
 
 ### Что имеем
--  WinFormsWords - разбиение текста на коллекцию токенов, вычисление TFIDF, отображение данных для 
+-  WinFormsWords - разбиение текста на коллекцию токенов, вычисление TFIDF, отображение данных для https://ru.stackoverflow.com/a/1042427/222542 и https://ru.stackoverflow.com/a/1042422/222542
 - ConsoleAppFlights - консольная программа с простейшим меню https://ru.stackoverflow.com/q/1032939/222542
 - WinFormsProducts - мелкий пример на работу с чекбоксами и текстбоксами https://ru.stackoverflow.com/questions/1030098/%d0%a1-checkbox-radiobutton-textbox
 - CalcWinForms - калькулятор с протоколом https://ru.stackoverflow.com/q/992188/222542
