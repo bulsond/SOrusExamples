@@ -2,6 +2,7 @@
 Примеры ответов для https://ru.stackoverflow.com/
 
 ### Что имеем
+- WinFormsMySql - базовая работа CRUD с MySQL https://ru.stackoverflow.com/a/1043980/222542
 -  WinFormsWords - разбиение текста на коллекцию токенов, вычисление TFIDF, отображение данных для https://ru.stackoverflow.com/a/1042427/222542 и https://ru.stackoverflow.com/a/1042422/222542
 - ConsoleAppFlights - консольная программа с простейшим меню https://ru.stackoverflow.com/q/1032939/222542
 - WinFormsProducts - мелкий пример на работу с чекбоксами и текстбоксами https://ru.stackoverflow.com/questions/1030098/%d0%a1-checkbox-radiobutton-textbox
