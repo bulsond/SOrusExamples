@@ -116,14 +116,13 @@ namespace WinFormsMySql
 
             //получаем текущего
             var current = (Employee)_bsCurrentEmployee.Current;
-            //проверяем введенную информацию заполнены
+            //проверяем введенную информацию введенную пользователем
             if (!IsCorrectCurrent(current))
             {
                 return;
             }
 
             Result<int> result;
-
             try
             {
                 if (current.Id == 0)
@@ -152,31 +151,6 @@ namespace WinFormsMySql
             {
                 MessageBox.Show(result.Error, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
-
-        private bool IsCorrectCurrent(Employee employee)
-        {
-            bool isCorrect = true;
-
-            string mask = "<?>";
-            if (String.IsNullOrWhiteSpace(employee.FirstName)
-                || String.IsNullOrEmpty(employee.FirstName)
-                || employee.FirstName.Equals(mask))
-            {
-                isCorrect = false;
-                var message = "Введите имя сотрудника.";
-                MessageBox.Show(message, "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            if (String.IsNullOrWhiteSpace(employee.LastName)
-                || String.IsNullOrEmpty(employee.LastName)
-                || employee.LastName.Equals(mask))
-            {
-                isCorrect = false;
-                var message = "Введите фамилию сотрудника.";
-                MessageBox.Show(message, "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-
-            return isCorrect;
         }
 
         private async void ButtonRemove_Click(object sender, EventArgs e)
@@ -255,6 +229,31 @@ namespace WinFormsMySql
             }
             _dataGridViewEmployees.Enabled = true;
             Cursor = Cursors.Default;
+        }
+
+        private bool IsCorrectCurrent(Employee employee)
+        {
+            bool isCorrect = true;
+
+            string mask = "<?>";
+            if (String.IsNullOrWhiteSpace(employee.FirstName)
+                || String.IsNullOrEmpty(employee.FirstName)
+                || employee.FirstName.Equals(mask))
+            {
+                isCorrect = false;
+                var message = "Введите имя сотрудника.";
+                MessageBox.Show(message, "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            if (String.IsNullOrWhiteSpace(employee.LastName)
+                || String.IsNullOrEmpty(employee.LastName)
+                || employee.LastName.Equals(mask))
+            {
+                isCorrect = false;
+                var message = "Введите фамилию сотрудника.";
+                MessageBox.Show(message, "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+            return isCorrect;
         }
     }
 }
