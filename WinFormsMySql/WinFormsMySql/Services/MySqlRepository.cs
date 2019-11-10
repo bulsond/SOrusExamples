@@ -65,16 +65,6 @@ namespace WinFormsMySql.Services
         {
             if (employee is null)
                 throw new ArgumentNullException(nameof(employee));
-            if (String.IsNullOrWhiteSpace(employee.FirstName)
-                || String.IsNullOrEmpty(employee.FirstName))
-            {
-                return new Result<int>("Введите имя сотрудника.");
-            }
-            if (String.IsNullOrWhiteSpace(employee.LastName)
-                || String.IsNullOrEmpty(employee.LastName))
-            {
-                return new Result<int>("Введите фамилию сотрудника.");
-            }
 
             int result = 0;
             try
@@ -150,16 +140,6 @@ namespace WinFormsMySql.Services
         {
             if (employee is null)
                 throw new ArgumentNullException(nameof(employee));
-            if (String.IsNullOrWhiteSpace(employee.FirstName)
-                || String.IsNullOrEmpty(employee.FirstName))
-            {
-                return new Result<int>("Введите имя сотрудника.");
-            }
-            if (String.IsNullOrWhiteSpace(employee.LastName)
-                || String.IsNullOrEmpty(employee.LastName))
-            {
-                return new Result<int>("Введите фамилию сотрудника.");
-            }
 
             int result = 0;
             try

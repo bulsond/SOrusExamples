@@ -34,9 +34,9 @@ namespace WinFormsMySql
         private void MainForm_Load(object sender, EventArgs e)
         {
             //тестовый репозиторий
-            //_repo = new TestRepository();
+            _repo = new TestRepository();
             //реальный репозиторий
-            _repo = new MySqlRepository();
+            //_repo = new MySqlRepository();
 
             //Загрузка данных
             LoadData();
@@ -114,7 +114,14 @@ namespace WinFormsMySql
         {
             SwitchOnWaiting();
 
+            //получаем текущего
             var current = (Employee)_bsCurrentEmployee.Current;
+            //проверяем введенную информацию заполнены
+            if (!IsCorrectCurrent(current))
+            {
+                return;
+            }
+
             Result<int> result;
 
             try
@@ -145,6 +152,31 @@ namespace WinFormsMySql
             {
                 MessageBox.Show(result.Error, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private bool IsCorrectCurrent(Employee employee)
+        {
+            bool isCorrect = true;
+
+            string mask = "<?>";
+            if (String.IsNullOrWhiteSpace(employee.FirstName)
+                || String.IsNullOrEmpty(employee.FirstName)
+                || employee.FirstName.Equals(mask))
+            {
+                isCorrect = false;
+                var message = "Введите имя сотрудника.";
+                MessageBox.Show(message, "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            if (String.IsNullOrWhiteSpace(employee.LastName)
+                || String.IsNullOrEmpty(employee.LastName)
+                || employee.LastName.Equals(mask))
+            {
+                isCorrect = false;
+                var message = "Введите фамилию сотрудника.";
+                MessageBox.Show(message, "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+            return isCorrect;
         }
 
         private async void ButtonRemove_Click(object sender, EventArgs e)
