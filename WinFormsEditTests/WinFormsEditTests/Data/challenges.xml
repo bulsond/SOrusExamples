@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfChallenge xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Challenge>
+    <Id>1</Id>
+    <Name>Первая задача</Name>
+    <Questions>
+      <Question>
+        <Title>Первый вопрос</Title>
+        <Value>Первый вопрос первой задачи</Value>
+        <Score>9</Score>
+        <Type>SingleSelect</Type>
+        <Answers>
+          <Answer>
+            <Value>Первый ответ</Value>
+            <IsCorrect>false</IsCorrect>
+          </Answer>
+          <Answer>
+            <Value>Второй ответ</Value>
+            <IsCorrect>false</IsCorrect>
+          </Answer>
+          <Answer>
+            <Value>Третий ответ (правильный)</Value>
+            <IsCorrect>true</IsCorrect>
+          </Answer>
+          <Answer>
+            <Value>Четвертый ответ</Value>
+            <IsCorrect>false</IsCorrect>
+          </Answer>
+          <Answer>
+            <Value>Пятый ответ</Value>
+            <IsCorrect>false</IsCorrect>
+          </Answer>
+          <Answer>
+            <Value>Шестой ответ</Value>
+            <IsCorrect>false</IsCorrect>
+          </Answer>
+        </Answers>
+      </Question>
+      <Question>
+        <Title>Второй вопрос</Title>
+        <Value>Второй вопрос первой задачи</Value>
+        <Score>10</Score>
+        <Type>MultipleSelect</Type>
+        <Answers>
+          <Answer>
+            <Value>Ответ первый</Value>
+            <IsCorrect>false</IsCorrect>
+          </Answer>
+          <Answer>
+            <Value>Ответ второй(правильный)</Value>
+            <IsCorrect>true</IsCorrect>
+          </Answer>
+          <Answer>
+            <Value>Ответ третий</Value>
+            <IsCorrect>false</IsCorrect>
+          </Answer>
+          <Answer>
+            <Value>Ответ четвертый(правильный)</Value>
+            <IsCorrect>true</IsCorrect>
+          </Answer>
+          <Answer>
+            <Value>Ответ пятый(правильный)</Value>
+            <IsCorrect>true</IsCorrect>
+          </Answer>
+          <Answer>
+            <Value>Ответ шестой</Value>
+            <IsCorrect>false</IsCorrect>
+          </Answer>
+        </Answers>
+      </Question>
+    </Questions>
+  </Challenge>
+</ArrayOfChallenge>

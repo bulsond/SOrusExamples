@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29509.3
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinFormsEditTests", "WinFormsEditTests\WinFormsEditTests.csproj", "{F837EEC6-3B32-4460-B37F-88861EB2E58F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinFormsEditTestsTests", "WinFormsEditTestsTests\WinFormsEditTestsTests.csproj", "{B447F247-C487-40CD-97C5-A37B06688D19}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F837EEC6-3B32-4460-B37F-88861EB2E58F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F837EEC6-3B32-4460-B37F-88861EB2E58F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F837EEC6-3B32-4460-B37F-88861EB2E58F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F837EEC6-3B32-4460-B37F-88861EB2E58F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B447F247-C487-40CD-97C5-A37B06688D19}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B447F247-C487-40CD-97C5-A37B06688D19}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B447F247-C487-40CD-97C5-A37B06688D19}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B447F247-C487-40CD-97C5-A37B06688D19}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {54AD8DC7-3485-42D8-A25E-C8F86DDE8FDF}
+	EndGlobalSection
+EndGlobal
