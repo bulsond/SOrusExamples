@@ -3,7 +3,7 @@
 namespace WinFormsEditTests.Models
 {
     /// <summary>
-    /// Задача
+    /// Задание
     /// </summary>
     public class Challenge
     {

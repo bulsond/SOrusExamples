@@ -85,7 +85,7 @@ namespace WinFormsEditTests.Data
         /// Добавить новое задание
         /// </summary>
         /// <param name="challenge"></param>
-        public void Add(Challenge challenge)
+        public void AddChallenge(Challenge challenge)
         {
             if (challenge is null)
                 throw new ArgumentNullException(nameof(challenge));
@@ -152,19 +152,6 @@ namespace WinFormsEditTests.Data
         {
             WriteFile();
             ReadFile();
-        }
-
-        /// <summary>
-        /// Добавление нового задания
-        /// </summary>
-        /// <param name="challenge">экземпляр задания</param>
-        public void AddChallenge(Challenge challenge)
-        {
-            if (challenge is null)
-                throw new ArgumentNullException(nameof(challenge));
-
-            _сhallenges.Add(challenge);
-            Save();
         }
     }
 }
